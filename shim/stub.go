@@ -421,9 +421,10 @@ func (s *ChaincodeStub) GetStateByRange(startKey, endKey string) (StateQueryIter
 	if startKey == "" {
 		startKey = emptyKeySubstitute
 	}
-	if err := validateSimpleKeys(startKey, endKey); err != nil {
-		return nil, err
-	}
+	// NOTE: JOHANN: I need state by range with composite keys
+	// if err := validateSimpleKeys(startKey, endKey); err != nil {
+	// 	return nil, err
+	// }
 	collection := ""
 
 	// ignore QueryResponseMetadata as it is not applicable for a range query without pagination
